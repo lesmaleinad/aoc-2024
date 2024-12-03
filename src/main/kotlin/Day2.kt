@@ -31,7 +31,7 @@ object Day2 {
     }
 
     private fun <T> List<T>.without(index: Int): List<T> {
-        return this.filterIndexed { i, _ -> i != index  }
+        return this.filterIndexed { i, _ -> i != index }
     }
 
     /**

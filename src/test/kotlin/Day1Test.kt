@@ -65,6 +65,6 @@ class Day1Test {
         val result = Day1.part2(input)
 
         // then
-        println(result)
+        assertEquals(26593248, result)
     }
 }
