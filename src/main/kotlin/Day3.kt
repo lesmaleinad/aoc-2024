@@ -26,26 +26,19 @@ object Day3 {
      * Only the most recent do() or don't() instruction applies. At the beginning of the program, mul instructions are enabled.
      */
     fun part2(input: String): Int {
-        val commands = regex_part2.findAll(input).map { it.groupValues[1] }.toList()
+        val commands = regex_part2.findAll(input).map { it.groupValues[1] }
         var doCommand = true
         return commands.sumOf { command ->
             when (command) {
-                "do()" -> {
-                    doCommand = true
-                    0
-                }
-                "don't()" -> {
-                    doCommand = false
-                    0
-                }
+                "do()" -> doCommand = true
+                "don't()" -> doCommand = false
                 else ->
                     if (doCommand) {
                         val groupValues = regex.find(command)!!.groupValues
-                        groupValues[1].toInt() * groupValues[2].toInt()
-                    } else {
-                        0
+                        return@sumOf groupValues[1].toInt() * groupValues[2].toInt()
                     }
             }
+            0
         }
     }
 }
