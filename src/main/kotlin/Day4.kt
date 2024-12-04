@@ -42,12 +42,8 @@ object Day4 {
         return grid.withIndex().sumOf { (y, row) ->
             row.indices.sumOf { x ->
                 val current = Vector(x, y)
-                if (grid[current] == 'X') {
-                    dirs.count { dir ->
-                        XMAS.withIndex().drop(1).all { (i, char) -> char == grid[current + dir * i] }
-                    }
-                } else {
-                    0
+                dirs.count { dir ->
+                    XMAS.withIndex().all { (i, char) -> char == grid[current + dir * i] }
                 }
             }
         }
@@ -59,12 +55,10 @@ object Day4 {
             Vector(-1, 1),
         )
 
-    private fun oppositeMS(char: Char?): Char? =
-        when (char) {
-            'M' -> 'S'
-            'S' -> 'M'
-            else -> '_'
-        }
+    private fun isMS(
+        a: Char?,
+        b: Char?,
+    ): Boolean = (a == 'M' && b == 'S') || (a == 'S' && b == 'M')
 
     /**
      * You're supposed to find two MAS in the shape of an X. One way to achieve that is like this:
@@ -83,7 +77,7 @@ object Day4 {
                 val current = Vector(x, y)
                 grid[current] == 'A' &&
                     diagonals.all { vector ->
-                        grid[current + vector] == oppositeMS(grid[current - vector])
+                        isMS(grid[current + vector], grid[current - vector])
                     }
             }
         }
