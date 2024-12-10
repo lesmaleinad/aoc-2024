@@ -1,14 +1,9 @@
 package com.lesmaleinad.aoc2024
 
+import com.lesmaleinad.aoc2024.utils.Vector
+import com.lesmaleinad.aoc2024.utils.get
+
 object Day4 {
-    private data class Vector(val x: Int, val y: Int) {
-        operator fun plus(other: Vector) = Vector(x + other.x, y + other.y)
-
-        operator fun minus(other: Vector) = Vector(x - other.x, y - other.y)
-
-        operator fun times(scalar: Int) = Vector(x * scalar, y * scalar)
-    }
-
     private fun readInput(input: String): List<List<Char>> {
         return input.lineSequence().filter { it.isNotEmpty() }.map { it.toList() }.toList()
     }
@@ -26,10 +21,6 @@ object Day4 {
         )
 
     private val XMAS = "XMAS".asSequence()
-
-    private operator fun <T> List<List<T>>.get(vector: Vector): T? {
-        return getOrNull(vector.y)?.getOrNull(vector.x)
-    }
 
     /**
      * This word search allows words to be horizontal, vertical, diagonal,
