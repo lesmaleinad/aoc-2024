@@ -2,7 +2,7 @@ package com.lesmaleinad.aoc2024
 
 object Day5 {
     private fun readInput(input: String): Pair<Map<String, List<String>>, Sequence<List<String>>> {
-        val (rulesStr, updatesStr) = input.split("\n\n")
+        val (rulesStr, updatesStr) = input.split("\n\n", "\r\n\r\n")
         val rules =
             rulesStr.lineSequence()
                 .map { it.split("|") }
