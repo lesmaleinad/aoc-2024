@@ -4,14 +4,16 @@ import org.junit.jupiter.api.Test
 import java.io.File
 
 class ExampleDayTest {
+    private val exampleInput =
+        """
+        """.trimIndent()
+
     private val inputFile by lazy { File("src/test/resources/exampleDay.txt").readText() }
 
     @Test
     fun `example part 1`() {
         // given
-        val input =
-            """
-            """.trimIndent()
+        val input = exampleInput
 
         // when
         val result = ExampleDay.part1(input)
@@ -36,9 +38,7 @@ class ExampleDayTest {
     @Test
     fun `example part 2`() {
         // given
-        val input =
-            """
-            """.trimIndent()
+        val input = exampleInput
 
         // when
         val result = ExampleDay.part2(input)
