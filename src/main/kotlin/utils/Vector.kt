@@ -10,15 +10,6 @@ data class Vector(val x: Int, val y: Int) {
     operator fun times(scalar: Int) = Vector(x * scalar, y * scalar)
 }
 
-operator fun <T> List<List<T>>.get(vector: Vector): T? {
-    return getOrNull(vector.y)?.getOrNull(vector.x)
-}
-
-operator fun <T> List<MutableList<T>>.set(
-    vector: Vector,
-    value: T,
-): T? = getOrNull(vector.y)?.set(vector.x, value)
-
 enum class Direction(val vector: Vector) {
     UP(Vector(0, -1)),
     DOWN(Vector(0, 1)),
