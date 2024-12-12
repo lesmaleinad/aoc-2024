@@ -39,8 +39,7 @@ class Day6Test {
         val result = Day6.part1(input)
 
         // then
-        println("Part 1: $result")
-        // assertEquals(0, result)
+        assertEquals(5318, result)
     }
 
     @Test
@@ -76,7 +75,6 @@ class Day6Test {
         val result = Day6.part2(input)
 
         // then
-        println("Part 2: $result")
-        // assertEquals(0, result)
+        assertEquals(1831, result)
     }
 }
