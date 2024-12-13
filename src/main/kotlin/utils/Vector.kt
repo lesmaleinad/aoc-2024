@@ -10,6 +10,18 @@ data class Vector(val x: Int, val y: Int) {
     operator fun times(scalar: Int) = Vector(x * scalar, y * scalar)
 }
 
+data class LongVector(val x: Long, val y: Long) {
+    operator fun plus(other: LongVector) = LongVector(x + other.x, y + other.y)
+
+    operator fun minus(other: LongVector) = LongVector(x - other.x, y - other.y)
+
+    operator fun times(scalar: Long) = LongVector(x * scalar, y * scalar)
+
+    operator fun times(other: LongVector) = LongVector(x * other.x, y * other.y)
+
+    operator fun div(other: LongVector) = (other.x / other.y) / (x / y)
+}
+
 enum class Direction(val vector: Vector) {
     UP(Vector(0, -1)),
     DOWN(Vector(0, 1)),
