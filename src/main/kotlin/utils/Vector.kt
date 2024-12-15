@@ -19,7 +19,7 @@ data class LongVector(val x: Long, val y: Long) {
 
     operator fun times(other: LongVector) = LongVector(x * other.x, y * other.y)
 
-    operator fun div(other: LongVector) = (other.x / other.y) / (x / y)
+    operator fun rem(other: LongVector) = LongVector(x % other.x, y % other.y)
 }
 
 enum class Direction(val vector: Vector) {
